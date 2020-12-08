@@ -1,7 +1,7 @@
 ---
 title: New page!
 date: 2020-12-08T21:37:33.681Z
-permalink: /sections-test
+permalink: /sections-test/
 eleventyNavigation:
   order: 0
   key: Sections
