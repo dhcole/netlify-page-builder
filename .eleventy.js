@@ -77,9 +77,8 @@ module.exports = function(eleventyConfig) {
 
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("static/img");
+  eleventyConfig.addPassthroughCopy("static");
   eleventyConfig.addPassthroughCopy("admin");
-  eleventyConfig.addPassthroughCopy("_includes/assets/");
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
@@ -97,6 +96,13 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, opts)
   );
 
+  eleventyConfig.addFilter('markdown', function(value) {
+      let markdown = require('markdown-it')({
+          html: true
+      });
+      return markdown.render(value);
+  });
+
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
 
@@ -106,7 +112,7 @@ module.exports = function(eleventyConfig) {
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: "/",
 
-    markdownTemplateEngine: "liquid",
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
     dir: {

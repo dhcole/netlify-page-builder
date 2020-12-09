@@ -11,5 +11,77 @@
     <!-- Include Netlify Identity for authentication -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script type="module" src="/admin/preview-templates/index.js"></script>
+    <script>
+    CMS.registerEditorComponent({
+      // Internal id of the component
+      id: "intro",
+      // Visible label
+      label: "Intro text",
+      // Fields the user need to fill out when adding an instance of the component
+      fields: [{name: 'content', label: 'Content', widget: 'text'}],
+      // Pattern to identify a block as being an instance of this component
+      pattern: /<p class="usa-intro">(.+)<\/p>/,
+      // Function to extract data elements from the regexp match
+      fromBlock: function(match) {
+        return {
+          content: (match[1] || '').replace(/<br>/g, '\n')
+        };
+      },
+      // Function to create a text block from an instance of this component
+      toBlock: function(obj) {
+        return '<p class="usa-intro">' + (obj.content || '').replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>';
+      },
+      // Preview output for this component. Can either be a string or a React component
+      // (component gives better render performance)
+      toPreview: function(obj) {
+        return (
+          '<p class="usa-intro">' + (obj.content || '').replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>'
+        );
+      }
+    });
+    CMS.registerEditorComponent({
+      // Internal id of the component
+      id: "button",
+      // Visible label
+      label: "Button",
+      // Fields the user need to fill out when adding an instance of the component
+      fields: [
+        {name: 'style', label: 'Style', widget: 'select', options: [
+          { label: "primary", value: "usa-button--primary"},
+          { label: "secondary", value: "usa-button--secondary"},
+          { label: "base", value: "usa-button--base"},
+          { label: "accent cool", value: "usa-button--accent-cool"},
+          { label: "accent warm", value: "usa-button--accent-warm"},
+          { label: "outline", value: "usa-button--outline"},
+          { label: "inverse", value: "usa-button--inverse"},
+          { label: "big", value: "usa-button--big"}
+        ]},
+        {name: 'text', label: 'Text', widget: 'string'},
+        {name: 'link', label: 'Link', widget: 'string'}
+      ],
+      // Pattern to identify a block as being an instance of this component
+      pattern: /<a class="usa-button (.+)" href="(.+)">(.+)<\/a>/,
+      // Function to extract data elements from the regexp match
+      fromBlock: function(match) {
+        return {
+          style: match[1],
+          link: match[2],
+          text: match[3]
+        };
+      },
+      // Function to create a text block from an instance of this component
+      toBlock: function(obj) {
+        return '<a class="usa-button ' + obj.style + '" href="' + obj.link + '">' + obj.text + '</a>';
+      },
+      // Preview output for this component. Can either be a string or a React component
+      // (component gives better render performance)
+      toPreview: function(obj) {
+        return (
+          '<a class="usa-button ' + obj.style + '" href="' + obj.link + '">' + obj.text + '</a>'
+        );
+      }
+    });
+
+    </script>
   </body>
 </html>

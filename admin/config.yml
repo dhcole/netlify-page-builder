@@ -1,9 +1,11 @@
 backend:
   name: git-gateway
+  #repo: dhcole/netlify-page-builder
   branch: master # Branch to update (optional; defaults to master)
+local_backend: true
 
 # Uncomment below to enable drafts
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
@@ -25,7 +27,7 @@ collections:
   - name: "pages"
     label: "Page"
     folder: "pages"
-    create: false # Change to true to allow editors to create new pages
+    create: true # Change to true to allow editors to create new pages
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -37,4 +39,53 @@ collections:
         fields:
           - { label: "Key", name: "key", widget: "string" }
           - { label: "Order", name: "order", widget: "number", default: 0 }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: 'Sections'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - label: 'Content'
+            name: 'content'
+            widget: object
+            fields:
+              - { label: "Background color", name: "background", widget: select, options: ["white", "light", "dark"], default: "white" }
+              - { label: "Content", name: "content", widget: markdown }
+          - label: 'Tag line'
+            name: 'tag-line'
+            widget: object
+            fields:
+              - { label: "Background color", name: "background", widget: select, options: ["white", "light", "dark"], default: "white" }
+              - { label: "Tag line", name: "tagline", widget: "string", default: "A tagline highlights your approach" }
+              - { label: "Content", name: "content", widget: markdown, default: "The tagline should inspire confidence and interest, focusing on the value that your overall approach offers to your audience. Use a heading typeface and keep your tagline to just a few words, and don’t confuse or mystify.\n\nUse the right side of the grid to explain the tagline a bit more. What are your goals? How do you do your work? Write in the present tense, and stay brief here. People who are interested can find details on internal pages." }
+          - label: 'Hero'
+            name: 'hero'
+            widget: object
+            fields:
+              - { label: "Callout", name: "callout", widget: string, default: "Hero callout:" }
+              - { label: "Title", name: "title", widget: string, default: "Bring attention to a project priority" }
+              - { label: "Paragraph", name: "paragraph", widget: markdown, default: "Support the callout with some short explanatory text. You don’t need more than a couple of sentences." }
+              - label: Button
+                name: button
+                widget: object
+                fields:
+                  - { label: "Text", name: "text", widget: string, default: "Call to action" }
+                  - { label: "Link", name: "href", widget: string, default: "#" }
+          - label: 'Graphic list'
+            name: 'graphic-list'
+            widget: object
+            fields:
+              - { label: "Background color", name: "background", widget: select, options: ["white", "light", "dark"], default: "white" }
+              - label: 'Items'
+                name: items
+                widget: list
+                summary: "{{fields.heading}}"
+                min: 2
+                max: 6
+                fields:
+                  - label: Image
+                    name: image
+                    widget: object
+                    fields:
+                      - { label: Image, name: image, widget: image }
+                      - { label: Alt text, name: alt, widget: string, default: "A description of the image" }
+                  - { label: "Heading", name: "heading", widget: "string", default: "Heading line" }
+                  - { label: "Content", name: "content", widget: "string", default: "Some longer content for the paragraph summary" }
