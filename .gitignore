@@ -1,6 +1,6 @@
 _site/
 node_modules/
 package-lock.json
-static/njwds
+# static/njwds
 .DS_Store
 
