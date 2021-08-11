@@ -34,7 +34,6 @@
     "clean-css": "^4.2.1",
     "html-minifier": "^4.0.0",
     "js-yaml": "^3.14.1",
-    "njwds": "file:../../../Users/dave/dev/njwds",
     "uglify-es": "^3.3.9"
   }
 }
