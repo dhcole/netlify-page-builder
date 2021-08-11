@@ -7,7 +7,7 @@
     "watch": "npx eleventy --watch",
     "start": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
-    "install": "cp -r ./node_modules/njwds/dist/ ./static/njwds && cp -nr node_modules/njwds/src/components ./_includes/components/njwds"
+    "install-njwds": "cp -r ./node_modules/njwds/dist/ ./static/njwds && cp -nr node_modules/njwds/src/components ./_includes/components/njwds"
   },
   "repository": {
     "type": "git",
