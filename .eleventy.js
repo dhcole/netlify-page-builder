@@ -3,6 +3,7 @@ const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-es");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const yaml = require("js-yaml");
 
 module.exports = function(eleventyConfig) {
 
@@ -97,11 +98,15 @@ module.exports = function(eleventyConfig) {
   );
 
   eleventyConfig.addFilter('markdown', function(value) {
-      let markdown = require('markdown-it')({
-          html: true
-      });
-      return markdown.render(value);
+    let markdown = require('markdown-it')({
+      html: true
+    });
+    return markdown.render(value);
   });
+
+  module.exports = eleventyConfig => {
+    eleventyConfig.addDataExtension("config.yml", contents => yaml.safeLoad(contents));
+  };
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],

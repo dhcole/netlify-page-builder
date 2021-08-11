@@ -2,7 +2,6 @@
 layout: layouts/base.njk
 section: page
 ---
-<h1>{{ title }}</h1>
 
 {% for section in sections %}
   {% include "components/sections/" + section.type + ".njk" %}

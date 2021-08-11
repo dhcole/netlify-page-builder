@@ -4,19 +4,15 @@
 	{% include "components/head.njk" %}
 
 	<body>
-
-		<header>
-			<em>
-				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
-			</em>
-			{% include "components/nav.njk" %}
-		</header>
+		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+		{% include "components/njwds/banner/banner.njk" %}
 
 		<main>
 			{{ layoutContent | safe }}
 		</main>
 
 		{% include "components/footer.njk" %}
+		{% include "components/njwds/identifier/identifier.njk" %}
 
 	</body>
 

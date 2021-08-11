@@ -1,5 +1,5 @@
 ---
-title: New page!
+title: New page NEwer!
 date: 2020-12-08T21:37:33.681Z
 permalink: /sections-test/
 eleventyNavigation:
@@ -7,7 +7,7 @@ eleventyNavigation:
   key: Sections
 sections:
   - type: hero
-    callout: "Hero callout update:"
+    callout: ""
     title: Bring attention to a project priority
     paragraph: Support the callout with some short explanatory text. You don’t need
       more than a couple of sentences.
@@ -24,6 +24,35 @@ sections:
 
 
       Use the right side of the grid to explain the tagline a bit more. What are your goals? How do you do your work? Write in the present tense, and stay brief here. People who are interested can find details on internal pages.
+  - type: graphic-list
+    background: dark
+    items:
+      - image:
+          alt: Thunder!
+          image: /static/img/logo.png
+        heading: Heading line 2
+        content: Some longer content for the paragraph summary that is longer now than
+          before
+      - image:
+          alt: A description of the image
+          image: /static/img/logo.png
+        heading: Heading line
+        content: Some longer content for the paragraph summary
+      - image:
+          alt: A description of the image
+          image: /static/img/logo.png
+        heading: Heading line
+        content: Some longer content for the paragraph summary
+      - image:
+          alt: A description of the image
+          image: /static/img/logo.png
+        heading: Heading line
+        content: Some longer content for the paragraph summary
+      - image:
+          alt: A description of the image
+          image: /static/img/covid-alert-nj_horizontal-1.png
+        heading: Heading line
+        content: Some longer content for the paragraph summary
   - type: content
     content: >-
       <p class="usa-intro">This is some intro text! This is some intro text!
@@ -59,34 +88,8 @@ sections:
       * If there are multiple locations for an auto body repair facility, you will need to submit separate applications for each place of business.
 
       * Facilities that have painting booths must also obtain an air quality permit. Visit this link to learn more: <https://www.state.nj.us/dep/aqpp/>
+
+
+      <a class="usa-button usa-button--primary" href="#">Next steps!</a>
     background: white
-  - type: graphic-list
-    background: dark
-    items:
-      - image:
-          alt: Thunder!
-          image: /static/img/logo.png
-        heading: Heading line 2
-        content: Some longer content for the paragraph summary that is longer now than
-          before
-      - image:
-          alt: A description of the image
-          image: /static/img/logo.png
-        heading: Heading line
-        content: Some longer content for the paragraph summary
-      - image:
-          alt: A description of the image
-          image: /static/img/logo.png
-        heading: Heading line
-        content: Some longer content for the paragraph summary
-      - image:
-          alt: A description of the image
-          image: /static/img/logo.png
-        heading: Heading line
-        content: Some longer content for the paragraph summary
-      - image:
-          alt: A description of the image
-          image: /static/img/covid-alert-nj_horizontal-1.png
-        heading: Heading line
-        content: Some longer content for the paragraph summary
 ---
