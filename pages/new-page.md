@@ -7,7 +7,7 @@ eleventyNavigation:
   key: Sections
 sections:
   - type: hero
-    callout: Note!
+    callout: Intro
     title: Bring attention to a project priority
     paragraph: Support the callout with some short explanatory text. You don’t need
       more than a couple of sentences.
